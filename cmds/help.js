@@ -1,8 +1,8 @@
 const Discord = module.require("discord.js");
 const fs = require("fs");
 module.exports.run = async (bot,message,args) => {
-    message.channel.send('class:\n!warr\n!pala\n!cat');
+    message.channel.send('\n!WA\n!class\n!DM\n!slot');
 };
 module.exports.help = {
-    name: "class"
+    name: "help"
 };
