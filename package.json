@@ -4,7 +4,8 @@
   "description": "",
   "main": "bot.js",
   "scripts": {
-    "start": "node bot.js"
+    "start": "node bot.js",
+    "server": "nodemon bot.js"
   },
   "author": "Roman Spector <ismailroma@ya.ru>",
   "license": "ISC",
