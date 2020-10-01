@@ -1,10 +1,11 @@
 const Discord = require('discord.js'); 
+let config = require('./botconfig.json'); 
+let prefix = config.prefix;
+
 const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 const fs = require('fs');
-let config = require('./botconfig.json'); 
-let token = config.token; 
-let prefix = config.prefix;
+
 
 fs.readdir('./cmds',(err,files)=>{
   if(err) console.log(err);
@@ -39,4 +40,4 @@ bot.on('message', message => {
     if(cmd) cmd.run(bot,message,args);
 });
 
-bot.login(token);
+bot.login(process.env.TOKEN);
