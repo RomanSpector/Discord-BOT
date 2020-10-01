@@ -9,7 +9,6 @@
   "author": "Roman Spector <ismailroma@ya.ru>",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.3.1",
-    "heroku": "^7.44.0"
+    "discord.js": "^12.3.1"
   }
 }
