@@ -40,4 +40,10 @@ bot.on('message', message => {
     if(cmd) cmd.run(bot,message,args);
 });
 
+bot.on('message', msg => {
+    if (msg.content === prefix + 'habr') {
+        msg.reply('The Best!');
+    }
+});
+
 bot.login(process.env.TOKEN);
