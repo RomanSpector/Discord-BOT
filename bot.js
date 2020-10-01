@@ -27,7 +27,7 @@ bot.on('ready', () => {
     });
 });
 
-bot.on('message', message => {
+bot.on('message', async message => {
     if (message.author.bot) return;
     if (message.channel.type == "dm") return;
     let user = message.author.username;
