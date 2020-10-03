@@ -58,6 +58,15 @@ bot.on('message', message => {
       })
 })
 
+bot.on('message', message => {
+  if (message.content === `${prefix}mylvl`) {
+    let uid = message.author.id
+    if(profile[uid]) {
+    let lvl = profile[uid].lvl
+    message.channel.send(`${message.author} у Вас ` + lvl + ' уровень!')
+  }
+}})
+
 bot.on('message', async message => {
     if (message.author.bot) return;
     if (message.channel.type == "dm") return;
