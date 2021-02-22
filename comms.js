@@ -2,18 +2,20 @@ const config = require('./botconfig.json');
 const Discord = require('discord.js');
 
 let prefix = config.prefix;
+let wow_class = '`warrior/priest/dk/rogue/shaman/paladin/druid/mage/hunter/warlock`';
 
 function test(message) {
     message.channel.send('Test!')
 }
 
 function SetRole(message, guildMember, table) {
-    if ( !table[1] ) return message.channel.send('!role `warrior/priest/dk/rogue/shaman/paladin/druid/mage/hunter/warlock`');
+    if ( !table[1] ) return message.channel.send(`!role ${wow_class}`);
     let role = message.guild.roles.cache.find(role => role.name === table[1]);
     if ( role ) {
         guildMember.roles.add(role.id);
+        message.channel.send("<@" + message.author.id + ">" + " получил роль: " + role.name)
     } else {
-        message.channel.send('!role `warrior/priest/dk/rogue/shaman/paladin/druid/mage/hunter/warlock`')
+        message.channel.send(`!role ${wow_class}`)
     }
 };
 
