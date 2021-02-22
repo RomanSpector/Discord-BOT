@@ -1,5 +1,7 @@
-const config = require('./config.json');
+const config = require('./botconfig.json'); 
 const Discord = require('discord.js');
+
+let prefix = config.prefix;
 
 function test(message) {
     message.channel.send('Test!')
