@@ -15,20 +15,22 @@ bot.on('ready',  () => {
 
 bot.on('message', (message) => {
   if ( message.author.bot ) return;
-  if ( message.channel.type == "dm" || message.channel.name != "bot-commands" ) return;
+  if ( message.channel.type == "dm" ) return;
   if ( !message.content.startsWith(prefix) ) return;
 
-  let guildMember = message.member;
-  let comm = message.content.trim() + " ";
-  let comm_name = comm.slice(0, comm.indexOf(" "));
-  let messArr = comm.split(" ");
+  if ( message.channel.name == "bot-commands" || message.channel.name == "test" ) {
+        let guildMember = message.member;
+        let comm = message.content.trim() + " ";
+        let cmd_name = comm.slice(0, comm.indexOf(" "));
+        let messArr = comm.split(" ");
 
-  for (key in cmd.comms) {
-      var command = prefix + cmd.comms[key].name;
-      if ( command == comm_name ) {
-          cmd.comms[key].out(message, guildMember, messArr);
-      }
-  }
+        for (key in cmd.comms) {
+            var command = prefix + cmd.comms[key].name;
+            if ( command == cmd_name ) {
+                cmd.comms[key].out(message, guildMember, messArr);
+            }
+        };
+    };
 });
 
 bot.login(process.env.TOKEN);
