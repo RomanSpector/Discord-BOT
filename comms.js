@@ -2,7 +2,7 @@ const config = require('./botconfig.json');
 const Discord = require('discord.js');
 
 let prefix = config.prefix;
-let wow_class = '`warrior/priest/dk/rogue/shaman/paladin/druid/mage/hunter/warlock`';
+let wow_class = '`warrior/priest/deathknight/rogue/shaman/paladin/druid/mage/hunter/warlock`';
 
 function test(message) {
     message.channel.send('Test!')
