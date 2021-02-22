@@ -26,7 +26,7 @@ bot.on('message', (message) => {
   for (key in cmd.comms) {
       var command = prefix + cmd.comms[key].name;
       if ( command == comm_name ) {
-          cmd.comms[comm_count].out(message, guildMember, messArr);
+          cmd.comms[key].out(message, guildMember, messArr);
       }
   }
 });
