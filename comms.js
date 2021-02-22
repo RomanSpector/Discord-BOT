@@ -9,11 +9,14 @@ function test(message) {
 }
 
 function SetRole(message, guildMember, table) {
-    if ( !table[1] ) return message.channel.send(`!role ${wow_class}`);
-    let role = message.guild.roles.cache.find(role => role.name === table[1]);
-    if ( role ) {
-        guildMember.roles.add(role.id);
-        message.channel.send("<@" + message.author.id + ">" + " получил роль: " + role.name)
+    let msgRole = table[1]
+    if ( !msgRole ) return message.channel.send(`!role ${wow_class}`);
+    let UnitRole = message.guild.roles.cache.find( role =>
+        role.name.replace(" ", "").toLowerCase() === msgRole
+    );
+    if ( UnitRole ) {
+        guildMember.roles.add(UnitRole.id);
+        message.channel.send("<@" + message.author.id + ">" + " получает роль: " + UnitRole.name)
     } else {
         message.channel.send(`!role ${wow_class}`)
     }
