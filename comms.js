@@ -13,22 +13,36 @@ let markdown = `Вы можете отформатировать свой код
   ◘ Используйте имя языка, который вы используете после "обратной стрелки", обеспечивает подсветку синтаксиса.
   ◘ "lua" is the language used in WA custom code blocks.`;
 
+  let UnitClass = {};
+  UnitClass.warrior     = "Warrior"
+  UnitClass.warlock     = "warlock"
+  UnitClass.druid       = "Druid"
+  UnitClass.paladin     = "paladin"
+  UnitClass.hunter      = "Hunter"
+  UnitClass.mage        = "mage"
+  UnitClass.rogue       = "Rogue"
+  UnitClass.priest      = "Priest"
+  UnitClass.shaman      = "Shaman"
+  UnitClass.deathknight = "Death Knight"
+
   function SendMarkdown(message) {
     message.channel.send(markdown)
 };
 
 function SetRole(message, guildMember, table) {
     let msgRole = table[1]
-    if ( !msgRole ) return message.channel.send(`!role ${wow_class}`);
-    let UnitRole = message.guild.roles.cache.find( role =>
-        role.name.replace(" ", "").toLowerCase() === msgRole
-    );
-    if ( UnitRole ) {
-        guildMember.roles.add(UnitRole.id);
-        message.channel.send("<@" + message.author.id + ">" + " получает роль: " + UnitRole.name)
+    if (!msgRole) return message.channel.send(`!role ${wow_class}`);
+    if ( UnitClass[msgRole] ) {
+        let UnitRole = message.guild.roles.cache.find(role =>
+            role.name.replace(" ", "").toLowerCase() === msgRole
+        );
+        if (UnitRole) {
+            guildMember.roles.add(UnitRole.id);
+            message.channel.send("<@" + message.author.id + ">" + " получает роль: " + UnitRole.name)
+        }
     } else {
         message.channel.send(`!role ${wow_class}`)
-    }
+    };
 };
 
 function GetLib(message) {
