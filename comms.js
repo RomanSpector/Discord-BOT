@@ -26,7 +26,7 @@ function GetWeakAuras(message) {
 }
 
 function GetHelp(message) {
-    message.channel.send('\n!wa - последняя версия аддона\n!lib - библиотеки');
+    message.channel.send('\n!wa - последняя версия аддона\n!lib - библиотеки\n!role [class]');
 }
 
 var comms_list = [
