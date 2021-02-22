@@ -15,7 +15,7 @@ bot.on('ready',  () => {
 
 bot.on('message', (message) => {
   if ( message.author.bot ) return;
-  if ( message.channel.type == "dm" ) return;
+  if ( message.channel.type == "dm" || message.channel.name != "bot-commands" ) return;
   if ( !message.content.startsWith(prefix) ) return;
 
   let guildMember = message.member;
