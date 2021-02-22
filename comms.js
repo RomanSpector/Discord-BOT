@@ -8,10 +8,12 @@ function test(message) {
 }
 
 function SetRole(message, guildMember, table) {
-    if ( !table[1] ) return;
+    if ( !table[1] ) return message.channel.send('!role `warrior/priest/dk/rogue/shaman/paladin/druid/mage/hunter/warlock`');
     let role = message.guild.roles.cache.find(role => role.name === table[1]);
     if ( role ) {
         guildMember.roles.add(role.id);
+    } else {
+        message.channel.send('!role `warrior/priest/dk/rogue/shaman/paladin/druid/mage/hunter/warlock`')
     }
 };
 
