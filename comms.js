@@ -13,19 +13,19 @@ let markdown = `Вы можете отформатировать свой код
   ◘ Используйте имя языка, который вы используете после "обратной стрелки", обеспечивает подсветку синтаксиса.
   ◘ "lua" is the language used in WA custom code blocks.`;
 
-  let UnitClass = {};
-  UnitClass.warrior     = "Warrior"
-  UnitClass.warlock     = "warlock"
-  UnitClass.druid       = "Druid"
-  UnitClass.paladin     = "paladin"
-  UnitClass.hunter      = "Hunter"
-  UnitClass.mage        = "mage"
-  UnitClass.rogue       = "Rogue"
-  UnitClass.priest      = "Priest"
-  UnitClass.shaman      = "Shaman"
-  UnitClass.deathknight = "Death Knight"
+let UnitClass = {};
+UnitClass.warrior     = "Warrior"
+UnitClass.warlock     = "warlock"
+UnitClass.druid       = "Druid"
+UnitClass.paladin     = "paladin"
+UnitClass.hunter      = "Hunter"
+UnitClass.mage        = "mage"
+UnitClass.rogue       = "Rogue"
+UnitClass.priest      = "Priest"
+UnitClass.shaman      = "Shaman"
+UnitClass.deathknight = "Death Knight"
 
-  function SendMarkdown(message) {
+function SendMarkdown(message) {
     message.channel.send(markdown)
 };
 
@@ -57,11 +57,34 @@ function GetHelp(message) {
     message.channel.send("\n!wa - последняя версия аддона\n!lib - библиотеки\n!role [class] - получить роль по классу");
 }
 
+function GetTriggerActivation(message) {
+    message.channel.send(`
+Требуется для активации = custom
+\`\`\`lua
+function(trigger)
+    return trigger[1] and (trigger[2] or trigger[3])
+end
+\`\`\`
+    `)
+};
+
+function GetCLEU(message) {
+    message.channel.send(`
+CLEU = COMBOT_LOG_EVENT_UNFILTERED
+event: \`CLEU\` or \`CLEU:subEvent1:subEvent2:etc\`
+\`\`\`lua
+function(event, ...)
+    local timestamp, subEvent, sourceGUID, sourceName, sourceFlags, destGUID, destName, destFlags, spellID, spellName, spellSchool, missType, amountMissed = ...
+end
+\`\`\`
+    `)
+};
+
 var comms_list = [
     {
-        name: "`",
-        out: SendMarkdown,
-        about: "Get markdown"
+        name: "test",
+        out: test,
+        about: "Тестовая команда"
     },
     {
         name: "role",
@@ -82,6 +105,21 @@ var comms_list = [
         name: "help",
         out: GetHelp,
         about: "Get help"
+    },
+    {
+        name: "`",
+        out: SendMarkdown,
+        about: "Get markdown"
+    },
+    {
+        name: "customactivation",
+        out: GetTriggerActivation,
+        about: "Get trigger activation"
+    },
+    {
+        name: "cleu",
+        out: GetCLEU,
+        about: "Get CLEU"
     },
 ];
 
