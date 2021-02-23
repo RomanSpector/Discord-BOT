@@ -25,37 +25,43 @@ UnitClass.priest      = "Priest"
 UnitClass.shaman      = "Shaman"
 UnitClass.deathknight = "Death Knight"
 
-function SendMarkdown(message) {
-    message.channel.send(markdown)
+function test(message) {
+    message.channel.send("Test!")
 };
 
 function SetRole(message, guildMember, table) {
     let msgRole = table[1]
     if (!msgRole) return message.channel.send(`!role ${wow_class}`);
+
     if ( UnitClass[msgRole] ) {
         let UnitRole = message.guild.roles.cache.find(role =>
             role.name.replace(" ", "").toLowerCase() === msgRole
         );
-        if (UnitRole) {
+        if ( UnitRole ) {
             guildMember.roles.add(UnitRole.id);
             message.channel.send("<@" + message.author.id + ">" + " получает роль: " + UnitRole.name)
-        }
+        };
     } else {
         message.channel.send(`!role ${wow_class}`)
     };
+
+};
+
+function SendMarkdown(message) {
+    message.channel.send(markdown)
 };
 
 function GetLib(message) {
     message.channel.send("https://yadi.sk/d/9wxHrNwl_13LbA");
-}
+};
 
 function GetWeakAuras(message) {
     message.channel.send("https://github.com/Bunny67/WeakAuras-WotLK");
-}
+};
 
 function GetHelp(message) {
-    message.channel.send("\n!wa - последняя версия аддона\n!lib - библиотеки\n!role [class] - получить роль по классу");
-}
+    message.channel.send("\n!wa - последняя версия аддона\n!lib - библиотеки");
+};
 
 function GetTriggerActivation(message) {
     message.channel.send(`
@@ -70,6 +76,7 @@ end
 
 function GetCLEU(message) {
     message.channel.send(`
+https://wow.gamepedia.com/COMBAT_LOG_EVENT
 CLEU = COMBOT_LOG_EVENT_UNFILTERED
 event: \`CLEU\` or \`CLEU:subEvent1:subEvent2:etc\`
 \`\`\`lua
