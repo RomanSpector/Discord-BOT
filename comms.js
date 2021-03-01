@@ -15,18 +15,18 @@ let markdown = `Вы можете отформатировать свой код
 
 let UnitClass = {};
 UnitClass.warrior     = "Warrior"
-UnitClass.warlock     = "warlock"
+UnitClass.warlock     = "Warlock"
 UnitClass.druid       = "Druid"
-UnitClass.paladin     = "paladin"
+UnitClass.paladin     = "Paladin"
 UnitClass.hunter      = "Hunter"
-UnitClass.mage        = "mage"
+UnitClass.mage        = "Mage"
 UnitClass.rogue       = "Rogue"
 UnitClass.priest      = "Priest"
 UnitClass.shaman      = "Shaman"
 UnitClass.deathknight = "Death Knight"
 
-function test(message) {
-    message.channel.send("Test!")
+function SendMarkdown(message) {
+    message.channel.send(markdown)
 };
 
 function SetRole(message, guildMember, table) {
@@ -45,10 +45,6 @@ function SetRole(message, guildMember, table) {
         message.channel.send(`!role ${wow_class}`)
     };
 
-};
-
-function SendMarkdown(message) {
-    message.channel.send(markdown)
 };
 
 function GetLib(message) {
@@ -88,11 +84,6 @@ end
 };
 
 var comms_list = [
-    {
-        name: "test",
-        out: test,
-        about: "Тестовая команда"
-    },
     {
         name: "role",
         out: SetRole,
