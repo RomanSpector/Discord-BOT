@@ -60,6 +60,7 @@ bot.on("messageReactionAdd", (messageReaction, user) => {
 
         if ( emoji.name == "KannaZoom" ) {
             guildMember.roles.add("815997204871380992");
+            message.send("я долбаеб и не выдаю роль")
         } 
     }
 })
