@@ -61,13 +61,13 @@ bot.on("messageReactionAdd", (messageReaction, user) => {
     if ( message.id == ReactMsg ) {
         if ( emoji.name == "SataniaThumbsUp" ) {
             members.fetch(user.id)
-            .then(member => member.roles.add("815996884811907104"))
+            .then(member => member.roles.add("813395409204150282"))
             .catch(console.error);
         }
 
         if ( emoji.name == "KannaZoom" ) {
             members.fetch(user.id)
-            .then(member => member.roles.add("815997204871380992"))
+            .then(member => member.roles.add("813395306720264193"))
             .catch(console.error);
         }
     }
@@ -86,13 +86,13 @@ bot.on("messageReactionRemove", (messageReaction, user) => {
     if ( message.id == ReactMsg ) {
         if ( emoji.name == "SataniaThumbsUp" ) {
             members.fetch(user.id)
-            .then(member => member.roles.remove("815996884811907104"))
+            .then(member => member.roles.remove("813395409204150282"))
             .catch(console.error);
         }
 
         if ( emoji.name == "KannaZoom" ) {
             members.fetch(user.id)
-            .then(member => member.roles.remove("815997204871380992"))
+            .then(member => member.roles.remove("813395306720264193"))
             .catch(console.error);
         }
     }
