@@ -17,11 +17,14 @@ bot.on("ready",  () => {
     bot.channels.fetch(channelID)
     .then(force => { 
         return force.messages.fetch(ReactMsg, true)
-    }).then(message => {
+    })
+    .catch(console.error)
+    .then(message => {
         message.react(message.guild.emojis.cache.get("765835628667207700"));
         message.react(message.guild.emojis.cache.get("765835626334388234"));
         console.log(message.content);
     })
+    .catch(console.error)
 });
 
 bot.on("message", (message) => {
@@ -59,11 +62,13 @@ bot.on("messageReactionAdd", (messageReaction, user) => {
         if ( emoji.name == "SataniaThumbsUp" ) {
             members.fetch(user.id)
             .then(member => member.roles.add("815996884811907104"))
+            .catch(console.error);
         }
 
         if ( emoji.name == "KannaZoom" ) {
             members.fetch(user.id)
             .then(member => member.roles.add("815997204871380992"))
+            .catch(console.error);
         }
     }
 })
@@ -82,11 +87,13 @@ bot.on("messageReactionRemove", (messageReaction, user) => {
         if ( emoji.name == "SataniaThumbsUp" ) {
             members.fetch(user.id)
             .then(member => member.roles.remove("815996884811907104"))
+            .catch(console.error);
         }
 
         if ( emoji.name == "KannaZoom" ) {
             members.fetch(user.id)
             .then(member => member.roles.remove("815997204871380992"))
+            .catch(console.error);
         }
     }
 })
