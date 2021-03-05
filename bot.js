@@ -30,7 +30,6 @@ bot.on("message", (message) => {
   if ( !message.content.startsWith(prefix) ) return;
 
   if ( message.channel.name == "bot-commands"
-  || message.channel.name == "test"
   || message.author.discriminator == 5943 ) {
         let guildMember = message.member;
         let comm = message.content.trim() + " ";
@@ -45,5 +44,43 @@ bot.on("message", (message) => {
         };
     };
 });
+
+bot.on("messageReactionAdd", (messageReaction, user) => {
+    if (user.bot) return
+    let emoji = messageReaction.emoji
+    let message = messageReaction.message
+    let guild = emoji.guild
+    let members = guild.members
+    let guildMember = members.cache.get(user.id)
+
+    if ( message.id == ReactMsg && guildMember) {
+        if ( emoji.name == "SataniaThumbsUp" ) {
+            guildMember.roles.add("765835628667207700");
+        }
+
+        if ( emoji.name == "KannaZoom" ) {
+            guildMember.roles.add("765835626334388234");
+        } 
+    }
+})
+
+bot.on("messageReactionRemove", (messageReaction, user) => {
+    if (user.bot) return
+    let emoji = messageReaction.emoji
+    let message = messageReaction.message
+    let guild = emoji.guild
+    let members = guild.members
+    let guildMember = members.cache.get(user.id)
+
+    if ( message.id == ReactMsg && guildMember) {
+        if ( emoji.name == "SataniaThumbsUp" ) {
+            guildMember.roles.remove("765835628667207700");
+        }
+
+        if ( emoji.name == "KannaZoom" ) {
+            guildMember.roles.remove("765835626334388234");
+        } 
+    }
+})
 
 bot.login(process.env.TOKEN);
