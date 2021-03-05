@@ -30,17 +30,32 @@ function SendMarkdown(message) {
 };
 
 function SetRole(message, guildMember, table) {
-    let msgRole = table[1]
+    let msgRole = table[1].toLowerCase()
     if (!msgRole) return message.channel.send(`!role ${wow_class}`);
 
+    guildMember.roles.cache.find(role => 
+        role.name.toLowerCase() == msgRole
+    )
+ 
     if ( UnitClass[msgRole] ) {
         let UnitRole = message.guild.roles.cache.find(role =>
             role.name.replace(" ", "").toLowerCase() === msgRole
         );
+
+        if ( UnitRole && table[2].toLowerCase() === "remove" ) {
+            guildMember.roles.remove(UnitRole.id);
+            return message.channel.send("<@" + message.author.id + ">" + " удаляет роль: " + UnitRole.name)
+        } 
+        
         if ( UnitRole ) {
+            if (guildMember.roles.cache.find(role => 
+                role.name.toLowerCase() == msgRole)) {
+                return message.channel.send("<@" + message.author.id + ">" + " у Вас уже есть данная роль. Выберите другую или добавьте `remove`, чтобы удалить эту роль")
+            } else {
             guildMember.roles.add(UnitRole.id);
-            message.channel.send("<@" + message.author.id + ">" + " получает роль: " + UnitRole.name)
-        };
+            message.channel.send("<@" + message.author.id + ">" + " получает роль: " + UnitRole.name
+        )}}
+
     } else {
         message.channel.send(`!role ${wow_class}`)
     };
