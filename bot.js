@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client();
-const fs = require("fs");
 const cmd = require("./comms.js");
 
 let config = require("./botconfig.json"); 
@@ -51,10 +50,8 @@ bot.on("messageReactionAdd", (messageReaction, user) => {
     if (user.bot) return
     let emoji = messageReaction.emoji
     let message = messageReaction.message
-    let channel = message.channel
 
-    if ( channel == channelID ) {
-        
+    if ( message.id == ReactMsg ) {
         if ( emoji.name == "SataniaThumbsUp" ) {
             message.member.roles.add("815996884811907104");
             message.channel.send("Добавилась новая роль");
@@ -70,9 +67,8 @@ bot.on("messageReactionRemove", (messageReaction, user) => {
     if (user.bot) return
     let emoji = messageReaction.emoji
     let message = messageReaction.message
-    let channel = message.channel
 
-    if ( channel == channelID ) {
+    if ( message.id == ReactMsg ) {
         
         if ( emoji.name == "SataniaThumbsUp" ) {
             message.member.roles.remove("815996884811907104");
