@@ -53,7 +53,7 @@ bot.on("messageReactionAdd", (messageReaction, user) => {
     let message = messageReaction.message
     let channel = message.channel
 
-    if ( channel == "813456680834433145" ) {
+    if ( channel == channelID ) {
         
         if ( emoji.name == "SataniaThumbsUp" ) {
             message.member.roles.add("815996884811907104");
