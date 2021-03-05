@@ -55,15 +55,11 @@ bot.on("messageReactionAdd", (messageReaction, user) => {
 
     if ( message.id == ReactMsg && guildMember) {
         if ( emoji.name == "SataniaThumbsUp" ) {
-            guildMember.roles.add("765835628667207700");
-
-            message.channel.send("<@" + message.author.id + ">" + "добавил реакцию")
+            guildMember.roles.add("815996884811907104");
         }
 
         if ( emoji.name == "KannaZoom" ) {
-            guildMember.roles.add("765835626334388234");
-
-            message.channel.send("<@" + message.author.id + ">" + "добавил реакцию")
+            guildMember.roles.add("815997204871380992");
         } 
     }
 })
@@ -78,15 +74,11 @@ bot.on("messageReactionRemove", (messageReaction, user) => {
 
     if ( message.id == ReactMsg && guildMember) {
         if ( emoji.name == "SataniaThumbsUp" ) {
-            guildMember.roles.remove("765835628667207700");
-
-            message.channel.send("<@" + message.author.id + ">" + "удалил реакцию")
+            guildMember.roles.remove("815996884811907104");
         }
 
         if ( emoji.name == "KannaZoom" ) {
-            guildMember.roles.remove("765835626334388234");
-
-            message.channel.send("<@" + message.author.id + ">" + "удалил реакцию")
+            guildMember.roles.remove("815997204871380992");
         } 
     }
 })
