@@ -57,6 +57,7 @@ bot.on("messageReactionAdd", (messageReaction, user) => {
         
         if ( emoji.name == "SataniaThumbsUp" ) {
             message.member.roles.add("815996884811907104");
+            message.channel.send("Добавилась новая роль");
         }
 
         if ( emoji.name == "KannaZoom" ) {
