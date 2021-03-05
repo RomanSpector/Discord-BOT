@@ -53,15 +53,17 @@ bot.on("messageReactionAdd", (messageReaction, user) => {
     let members = guild.members
     let guildMember = members.cache.get(user.id)
 
-    message.channel.send("<@" + message.author.id + ">" + "добавил реакцию")
-
     if ( message.id == ReactMsg && guildMember) {
         if ( emoji.name == "SataniaThumbsUp" ) {
             guildMember.roles.add("765835628667207700");
+
+            message.channel.send("<@" + message.author.id + ">" + "добавил реакцию")
         }
 
         if ( emoji.name == "KannaZoom" ) {
             guildMember.roles.add("765835626334388234");
+
+            message.channel.send("<@" + message.author.id + ">" + "добавил реакцию")
         } 
     }
 })
@@ -74,15 +76,17 @@ bot.on("messageReactionRemove", (messageReaction, user) => {
     let members = guild.members
     let guildMember = members.cache.get(user.id)
 
-    message.channel.send("<@" + message.author.id + ">" + "удалил реакцию")
-
     if ( message.id == ReactMsg && guildMember) {
         if ( emoji.name == "SataniaThumbsUp" ) {
             guildMember.roles.remove("765835628667207700");
+
+            message.channel.send("<@" + message.author.id + ">" + "удалил реакцию")
         }
 
         if ( emoji.name == "KannaZoom" ) {
             guildMember.roles.remove("765835626334388234");
+
+            message.channel.send("<@" + message.author.id + ">" + "удалил реакцию")
         } 
     }
 })
