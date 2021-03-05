@@ -49,22 +49,19 @@ bot.on("messageReactionAdd", (messageReaction, user) => {
     if (user.bot) return
     let emoji = messageReaction.emoji
     let message = messageReaction.message
-    let guild = emoji.guild
-    let members = guild.members
+    let members = emoji.guild.members
     let guildMember = members.cache.get(user.id)
 
-    message.channel.send("guildMember.id: " + guildMember.id)
     message.channel.send("user.id: " + user.id)
+    message.channel.send("guildMember.id: " + guildMember.id)
 
     if ( message.id == ReactMsg && guildMember) {
-        message.channel.send('здаррова')
         if ( emoji.name == "SataniaThumbsUp" ) {
             guildMember.roles.add("815996884811907104");
         }
 
         if ( emoji.name == "KannaZoom" ) {
             guildMember.roles.add("815997204871380992");
-            message.channel.send("я долбаеб и не выдаю роль")
         } 
     }
 })
@@ -73,8 +70,7 @@ bot.on("messageReactionRemove", (messageReaction, user) => {
     if (user.bot) return
     let emoji = messageReaction.emoji
     let message = messageReaction.message
-    let guild = emoji.guild
-    let members = guild.members
+    let members = emoji.guild.members
     let guildMember = members.cache.get(user.id)
 
     if ( message.id == ReactMsg && guildMember) {
