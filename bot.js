@@ -7,7 +7,7 @@ let config = require("./botconfig.json");
 let prefix = config.prefix;
 
 const channelID = "761857830923665418";
-const ReactMsg= "762772165610438677";
+const ReactMsg= "817331548256731167";
 
 bot.on("ready",  () => { 
     console.log(`Запустился бот ${bot.user.username}`);
