@@ -53,10 +53,9 @@ bot.on("messageReactionAdd", (messageReaction, user) => {
     let emoji = messageReaction.emoji
     let message = messageReaction.message
     let members = emoji.guild.members
-    //let guildMember = members.cache.get(user.id)
 
-    message.channel.send("message.id: " + message.id)
-    message.channel.send("ReactMsg: " + ReactMsg)
+    console.log("message.id: " + message.id)
+    console.log("ReactMsg: " + ReactMsg)
 
     if ( message.id == ReactMsg ) {
         if ( emoji.name == "SataniaThumbsUp" ) {
@@ -78,10 +77,9 @@ bot.on("messageReactionRemove", (messageReaction, user) => {
     let emoji = messageReaction.emoji
     let message = messageReaction.message
     let members = emoji.guild.members
-    let guildMember = members.cache.get(user.id)
 
-    message.channel.send("message.id: " + message.id)
-    message.channel.send("ReactMsg: " + ReactMsg)
+    console.log("message.id: " + message.id)
+    console.log("ReactMsg: " + ReactMsg)
 
     if ( message.id == ReactMsg ) {
         if ( emoji.name == "SataniaThumbsUp" ) {
