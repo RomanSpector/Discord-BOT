@@ -50,19 +50,21 @@ bot.on("messageReactionAdd", (messageReaction, user) => {
     let emoji = messageReaction.emoji
     let message = messageReaction.message
     let members = emoji.guild.members
-    let guildMember = members.cache.get(user.id)
+    //let guildMember = members.cache.get(user.id)
 
     message.channel.send("user.id: " + user.id)
     message.channel.send("guildMember.id: " + guildMember.id)
 
-    if ( message.id == ReactMsg && guildMember) {
+    if ( message.id == ReactMsg ) {
         if ( emoji.name == "SataniaThumbsUp" ) {
-            guildMember.roles.add("815996884811907104");
+            members.fetch(user.id)
+            .then(member => member.roles.add("815996884811907104"))
         }
 
         if ( emoji.name == "KannaZoom" ) {
-            guildMember.roles.add("815997204871380992");
-        } 
+            members.fetch(user.id)
+            .then(member => member.roles.add("815997204871380992"))
+        }
     }
 })
 
@@ -73,14 +75,19 @@ bot.on("messageReactionRemove", (messageReaction, user) => {
     let members = emoji.guild.members
     let guildMember = members.cache.get(user.id)
 
-    if ( message.id == ReactMsg && guildMember) {
+    message.channel.send("user.id: " + user.id)
+    message.channel.send("guildMember.id: " + guildMember.id)
+
+    if ( message.id == ReactMsg ) {
         if ( emoji.name == "SataniaThumbsUp" ) {
-            guildMember.roles.remove("815996884811907104");
+            members.fetch(user.id)
+            .then(member => member.roles.remove("815996884811907104"))
         }
 
         if ( emoji.name == "KannaZoom" ) {
-            guildMember.roles.remove("815997204871380992");
-        } 
+            members.fetch(user.id)
+            .then(member => member.roles.remove("815997204871380992"))
+        }
     }
 })
 
