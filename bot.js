@@ -46,38 +46,4 @@ bot.on("message", (message) => {
     };
 });
 
-bot.on("messageReactionAdd", (messageReaction, user) => {
-    if (user.bot) return
-    let emoji = messageReaction.emoji
-    let message = messageReaction.message
-
-    if ( message.id == ReactMsg ) {
-        if ( emoji.name == "SataniaThumbsUp" ) {
-            message.member.roles.add("815996884811907104");
-            message.channel.send("Добавилась новая роль");
-        }
-
-        if ( emoji.name == "KannaZoom" ) {
-            message.member.roles.add("815997204871380992");
-        }
-    }
-})
-
-bot.on("messageReactionRemove", (messageReaction, user) => {
-    if (user.bot) return
-    let emoji = messageReaction.emoji
-    let message = messageReaction.message
-
-    if ( message.id == ReactMsg ) {
-        
-        if ( emoji.name == "SataniaThumbsUp" ) {
-            message.member.roles.remove("815996884811907104");
-        }
-
-        if ( emoji.name == "KannaZoom" ) {
-            message.member.roles.remove("815997204871380992");
-        }
-    }
-})
-
 bot.login(process.env.TOKEN);
