@@ -53,7 +53,8 @@ bot.on("messageReactionAdd", (messageReaction, user) => {
     let members = guild.members
     let guildMember = members.cache.get(user.id)
 
-    message.channel.send(guildMember.id)
+    message.channel.send("guildMember.id: " + guildMember.id)
+    message.channel.send("user.id: " + user.id)
 
     if ( message.id == ReactMsg && guildMember) {
         message.channel.send('здаррова')
