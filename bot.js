@@ -53,6 +53,8 @@ bot.on("messageReactionAdd", (messageReaction, user) => {
     let members = guild.members
     let guildMember = members.cache.get(user.id)
 
+    message.channel.send(message.id, ReactMsg, guildMember.id, user.id)
+
     if ( message.id == ReactMsg && guildMember) {
         if ( emoji.name == "SataniaThumbsUp" ) {
             guildMember.roles.add("815996884811907104");
