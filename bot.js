@@ -8,6 +8,11 @@ let prefix = config.prefix;
 const channelID = "768549340460875806";
 const ReactMsg= "817373334831497257";
 
+const Emojis = {
+    SataniaThumbsUp : "815996884811907104",
+    KannaZoom : "815997204871380992",
+}
+
 bot.on("ready",  () => { 
     console.log(`Запустился бот ${bot.user.username}`);
     bot.generateInvite(["ADMINISTRATOR"]).then(link => { 
@@ -18,13 +23,14 @@ bot.on("ready",  () => {
     .then(force => { 
         return force.messages.fetch(ReactMsg, true)
     })
-    .catch(console.error)
     .then(message => {
+
         message.react(message.guild.emojis.cache.get("765835628667207700"));
         message.react(message.guild.emojis.cache.get("765835626334388234"));
         console.log(message.content);
+    }).then(reactions => {
+        console.log(reactions)
     })
-    .catch(console.error)
 });
 
 bot.on("message", (message) => {
@@ -52,21 +58,13 @@ bot.on("messageReactionAdd", (messageReaction, user) => {
     if (user.bot) return
     let emoji = messageReaction.emoji
     let message = messageReaction.message
-    let members = emoji.guild.members
-
-    console.log("message.id: " + message.id)
-    console.log("ReactMsg: " + ReactMsg)
+    let guild = emoji.guild
+    let members = guild.members
 
     if ( message.id == ReactMsg ) {
-        if ( emoji.name == "SataniaThumbsUp" ) {
+        if ( Emojis[emoji.name] ) {
             members.fetch(user.id)
-            .then(member => member.roles.add("815996884811907104"))
-            .catch(console.error);
-        }
-
-        if ( emoji.name == "KannaZoom" ) {
-            members.fetch(user.id)
-            .then(member => member.roles.add("815997204871380992"))
+            .then(member => member.roles.add(Emojis[emoji.name]))
             .catch(console.error);
         }
     }
@@ -76,21 +74,13 @@ bot.on("messageReactionRemove", (messageReaction, user) => {
     if (user.bot) return
     let emoji = messageReaction.emoji
     let message = messageReaction.message
-    let members = emoji.guild.members
-
-    console.log("message.id: " + message.id)
-    console.log("ReactMsg: " + ReactMsg)
+    let guild = emoji.guild
+    let members = guild.members
 
     if ( message.id == ReactMsg ) {
-        if ( emoji.name == "SataniaThumbsUp" ) {
+        if ( Emojis[emoji.name] ) {
             members.fetch(user.id)
-            .then(member => member.roles.remove("815996884811907104"))
-            .catch(console.error);
-        }
-
-        if ( emoji.name == "KannaZoom" ) {
-            members.fetch(user.id)
-            .then(member => member.roles.remove("815997204871380992"))
+            .then(member => member.roles.remove(Emojis[emoji.name]))
             .catch(console.error);
         }
     }
