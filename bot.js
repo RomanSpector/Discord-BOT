@@ -5,8 +5,8 @@ const cmd = require("./comms.js");
 let config = require("./botconfig.json"); 
 let prefix = config.prefix;
 
-const channelID = "768549340460875806";
-const ReactMsg= "817373334831497257";
+const channelID = "750386219120328805";
+const ReactMsg= "817667506378375189";
 
 const Emojis = {
     SataniaThumbsUp : "815996884811907104",
