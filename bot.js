@@ -32,7 +32,7 @@ bot.on("ready",  () => {
         console.log(reactions)
     })
 
-    bot.guilds.fetch("761518226424856597")
+    bot.guilds.fetch("750381752752668682")
     .then(guild => {
         return guild.members
     })
