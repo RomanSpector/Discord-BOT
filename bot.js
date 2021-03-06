@@ -31,6 +31,14 @@ bot.on("ready",  () => {
     }).then(reactions => {
         console.log(reactions)
     })
+
+    bot.guilds.fetch("761518226424856597")
+    .then(guild => {
+        return guild.members
+    })
+    .then(members => {
+        console.log(members)
+    })
 });
 
 bot.on("message", (message) => {
