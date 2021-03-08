@@ -31,14 +31,6 @@ bot.on("ready",  () => {
     }).then(reactions => {
         console.log(reactions)
     })
-
-    bot.guilds.fetch("750381752752668682")
-    .then(guild => {
-        return guild.members
-    })
-    .then(members => {
-        console.log(members)
-    })
 });
 
 bot.on("message", (message) => {
@@ -89,7 +81,7 @@ bot.on("messageReactionRemove", (messageReaction, user) => {
 
     if ( message.id == ReactMsg ) {
         if ( Emojis[emoji.name] ) {
-            member.roles.add(Emojis[emoji.name])
+            member.roles.remove(Emojis[emoji.name])
         }
     }
 })
