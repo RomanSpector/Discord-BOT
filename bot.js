@@ -5,8 +5,8 @@ const cmd = require("./comms.js");
 let config = require("./botconfig.json"); 
 let prefix = config.prefix;
 
-const channelID = "750386219120328805";
-const ReactMsg= "817667506378375189";
+const channelID = "761857830923665418";
+const ReactMsg= "817331548256731167";
 
 const Emojis = {
     SataniaThumbsUp : "815996884811907104",
@@ -62,18 +62,20 @@ bot.on("message", (message) => {
     };
 });
 
+function GetGuildMember(guild, userID) {
+    return guild.members.cache.find(GuildMember => GuildMember.id == userID )
+}
+
 bot.on("messageReactionAdd", (messageReaction, user) => {
     if (user.bot) return
     let emoji = messageReaction.emoji
     let message = messageReaction.message
     let guild = emoji.guild
-    let members = guild.members
+    let member = GetGuildMember(guild, user.id)
 
     if ( message.id == ReactMsg ) {
         if ( Emojis[emoji.name] ) {
-            members.fetch(user.id)
-            .then(member => member.roles.add(Emojis[emoji.name]))
-            .catch(console.error);
+            member.roles.add(Emojis[emoji.name])
         }
     }
 })
@@ -83,13 +85,11 @@ bot.on("messageReactionRemove", (messageReaction, user) => {
     let emoji = messageReaction.emoji
     let message = messageReaction.message
     let guild = emoji.guild
-    let members = guild.members
+    let member = GetGuildMember(guild, user.id)
 
     if ( message.id == ReactMsg ) {
         if ( Emojis[emoji.name] ) {
-            members.fetch(user.id)
-            .then(member => member.roles.remove(Emojis[emoji.name]))
-            .catch(console.error);
+            member.roles.add(Emojis[emoji.name])
         }
     }
 })
