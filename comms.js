@@ -76,12 +76,12 @@ function GetHelp(message) {
 
 function GetHowImportr(message) {
     message.channel.send(`**How to import?**
-**1**. Open the WeakAuras interface by clicking tthe WA icon by you minimap *(command /wa)*
-**2**. In the upper left area of th WeakAuras interface click the import button
-**3**. Paste the string into the window with Ctrl+V (or command-V on a Mac)
-**4**. A box will appear showing some basic information about the WeakAuras.
+**1**. Open the WeakAuras interface by clicking the WA icon by your minimap *( or command /wa)*.
+**2**. In the upper left area of the WeakAuras interface click the Import button.
+**3**. Paste the string into the window with ctrl-V (or command-V on a Mac).
+**4**. A box will appear showing some basic information about the WeakAura.
 The Show Code button will let you review any custom code before importing.
-The import button will save the WeakAuras to your configuration
+The Import button will save the WeakAura to your configuration.
 **5**. Once imported, you'll find the options panel for this WeakAura on the right of side of the interface.
 For most users, the Display tab and maybe Custom Options tab will have settings to customize what you have just imported.
 https://media.discordapp.net/attachments/761857830923665418/819819748974919740/import.png?width=396&height=634`)
