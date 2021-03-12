@@ -74,6 +74,10 @@ function GetHelp(message) {
     message.channel.send("\n!wa - последняя версия аддона\n!lib - библиотеки");
 };
 
+function GetHowImportr(message) {
+    message.channel.send("https://media.discordapp.net/attachments/761857830923665418/819819748974919740/import.png?width=396&height=634")
+}
+
 function GetTriggerActivation(message) {
     message.channel.send(`
 Требуется для активации = custom
@@ -103,6 +107,11 @@ var comms_list = [
         name: "role",
         out: SetRole,
         about: "Set role"
+    },
+    {
+        name: "import",
+        out: GetHowImportr,
+        about: "Get link how import"
     },
     {
         name: "lib",
