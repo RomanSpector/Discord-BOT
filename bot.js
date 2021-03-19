@@ -23,14 +23,14 @@ bot.on("ready",  () => {
     .then(force => { 
         return force.messages.fetch(ReactMsg, true)
     })
-    .then(message => {
+    // .then(message => {
 
-        message.react(message.guild.emojis.cache.get("765835628667207700"));
-        message.react(message.guild.emojis.cache.get("765835626334388234"));
-        console.log(message.content);
-    }).then(reactions => {
-        console.log(reactions)
-    })
+    //     message.react(message.guild.emojis.cache.get("765835628667207700"));
+    //     message.react(message.guild.emojis.cache.get("765835626334388234"));
+    //     console.log(message.content);
+    // }).then(reactions => {
+    //     console.log(reactions)
+    // })
 });
 
 bot.on("message", (message) => {
