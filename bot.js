@@ -86,24 +86,24 @@ bot.on("messageReactionRemove", (messageReaction, user) => {
     }
 })
 
-// function getLogsChannel(guild) {
-//     return guild.channels.cache.find((channel) => channel.name == "moderator-only");
-// }
+function getLogsChannel(guild) {
+    return guild.channels.cache.find((channel) => channel.name == "moderator-only");
+}
 
-// // Announce join/left
-// bot.on('guildMemberAdd', (member) => {
-//     let welcomembed = new Discord.MessageEmbed()
-//         .setAuthor(`${member.user.tag} just joined!`, member.user.avatarURL())
-//         .setColor("00FF00");
-//     getLogsChannel(member.guild).send(welcomembed).catch((err) => console.log(err));
-// });
+// Announce join/left
+bot.on('guildMemberAdd', (member) => {
+    let welcomembed = new Discord.MessageEmbed()
+        .setAuthor(`${member.user.tag} just joined!`, member.user.avatarURL())
+        .setColor("00FF00");
+    getLogsChannel(member.guild).send(welcomembed).catch((err) => console.log(err));
+});
 
-// bot.on('guildMemberRemove', (member) => {
-//     let welcomembed = new Discord.MessageEmbed()
-//         .setAuthor(`${member.user.tag} just left!`, member.user.avatarURL())
-//         .setColor("FF0000");
-//     getLogsChannel().send(welcomembed).catch((err) => console.log(err));
-// });
+bot.on('guildMemberRemove', (member) => {
+    let welcomembed = new Discord.MessageEmbed()
+        .setAuthor(`${member.user.tag} just left!`, member.user.avatarURL())
+        .setColor("FF0000");
+    getLogsChannel().send(welcomembed).catch((err) => console.log(err));
+});
 
 
 bot.login(process.env.TOKEN);
